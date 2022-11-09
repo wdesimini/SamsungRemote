@@ -102,4 +102,24 @@ final class SRClientTests: XCTestCase {
         // then
         XCTAssertEqual(body?.clients.first?.attributes.token, token)
     }
+
+    func testUnexpectedAuthorization() async throws {
+        // given
+        token = "11111112"
+        injectMockEvents([
+            .viabilityChanged(true),
+            .connectedMock,
+            try .textMock("auth_approved"),
+            .cancelled,
+        ])
+        // when
+        do {
+            let _ = try await client.key(.mute)
+            XCTFail()
+        } catch let SRError.unexpectedAuthorization(tokenReceived) {
+            XCTAssertNotEqual(tokenReceived, token)
+        } catch {
+            XCTFail()
+        }
+    }
 }

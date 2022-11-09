@@ -9,5 +9,7 @@ import Foundation
 
 public enum SRError: Error {
     case channelEvent(_ event: SRChannelEvent)
+    case invalidResponse
     case missingToken
+    case unexpectedAuthorization(token: SRToken)
 }
