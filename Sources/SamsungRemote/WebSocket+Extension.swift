@@ -10,7 +10,7 @@ import Starscream
 
 extension WebSocket {
     @available(macOS 10.15, *) func connectUntilBody() async throws -> Data? {
-        return try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { continuation in
             var result: Result<Data?, Error> = .success(nil)
             onEvent = { [weak self] event in
                 if let body = event.body {
