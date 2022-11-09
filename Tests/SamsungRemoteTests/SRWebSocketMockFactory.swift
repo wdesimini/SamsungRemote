@@ -42,6 +42,7 @@ extension URLRequest {
 
 extension SRWebSocketMock {
     fileprivate class EngineMock {
+        fileprivate var written: Any?
         private let events: [WebSocketEvent]
         private weak var delegate: EngineDelegate!
 
@@ -72,14 +73,13 @@ extension SRWebSocketMock.EngineMock: Engine {
     func forceStop() {
     }
 
-    func write(data: Data, opcode: FrameOpCode, completion: (() -> Void)?) {
-        print(data)
-        print(opcode)
+    func write(data: Data, opcode _: FrameOpCode, completion: (() -> Void)?) {
+        written = data
         completion?()
     }
 
     func write(string: String, completion: (() -> Void)?) {
-        print(string)
+        written = string
         completion?()
     }
 }

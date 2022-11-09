@@ -1,0 +1,18 @@
+{
+    "data": {
+        "clients": [
+            {
+                "attributes": {
+                    "name": "U1NUVg==",
+                    "token":"11111111"
+                },
+                "connectTime": 1666053723536,
+                "deviceName": "U1NUVg==",
+                "id": "6c8f1181-adb6-488c-8b54-d2131ad2f012",
+                "isHost": false
+            }
+        ],
+        "id": "6c8f1181-adb6-488c-8b54-d2131ad2f012"
+    },
+    "event": "ms.channel.connect"
+}

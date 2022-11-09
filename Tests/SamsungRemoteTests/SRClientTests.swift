@@ -13,6 +13,7 @@ final class SRClientTests: XCTestCase {
     private let app = "SamsungRemoteApp"
     private let ipAddress = "192.168.0.21"
     private var client: SRClient!
+    private var token: SRToken?
 
     override func setUpWithError() throws {
         continueAfterFailure = false
@@ -26,6 +27,7 @@ final class SRClientTests: XCTestCase {
         client = .init(
             app: app,
             ipAddress: ipAddress,
+            token: token,
             websocketFactory: SRWebSocketMockFactory(
                 events: events
             )
@@ -84,5 +86,20 @@ final class SRClientTests: XCTestCase {
         } else {
             XCTFail()
         }
+    }
+
+    func testKeySuccess() async throws {
+        // given
+        token = "11111111"
+        injectMockEvents([
+            .viabilityChanged(true),
+            .connectedMock,
+            try .textMock("key_success"),
+            .cancelled,
+        ])
+        // when
+        let body = try await client.key(.mute)
+        // then
+        XCTAssertEqual(body?.clients.first?.attributes.token, token)
     }
 }
