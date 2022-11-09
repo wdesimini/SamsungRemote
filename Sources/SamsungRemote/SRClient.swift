@@ -24,7 +24,7 @@ import Starscream
         self.websocketFactory = websocketFactory
     }
 
-    public func auth() async throws -> String? {
+    public func auth() async throws -> SRToken? {
         let request = SRAuthRequest(app: app, ipAddress: ipAddress)
         let websocket = websocketFactory.websocket(from: request)
         guard let data = try await websocket.connectUntilBody()

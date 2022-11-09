@@ -14,5 +14,5 @@ public typealias SRAuthResponse = SRResponse<SRAuthResponseBody>
 public struct SRAuthResponseBody: Codable {
     public let clients: [SRDevice]
     public let id: String
-    public let token: String
+    public let token: SRToken
 }
