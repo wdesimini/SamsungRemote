@@ -7,7 +7,15 @@
 
 import Starscream
 
-public struct SRWebSocketFactory {
+// MARK: - SRWebSocketFactoryProtocol
+
+public protocol SRWebSocketFactoryProtocol {
+    func websocket(from request: SRRequest) -> WebSocket
+}
+
+// MARK: - SRWebSocketFactory
+
+public struct SRWebSocketFactory: SRWebSocketFactoryProtocol {
     public let pinner: CertificatePinning
 
     public init(pinner: CertificatePinning? = nil) {

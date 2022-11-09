@@ -11,13 +11,13 @@ import Starscream
 @available(macOS 10.15, *) public class SRClient {
     public let app: String
     public let ipAddress: String
-    public let websocketFactory: SRWebSocketFactory
+    public let websocketFactory: SRWebSocketFactoryProtocol
     private let decoder = JSONDecoder()
 
     public init(
         app: String,
         ipAddress: String,
-        websocketFactory: SRWebSocketFactory
+        websocketFactory: SRWebSocketFactoryProtocol
     ) {
         self.app = app
         self.ipAddress = ipAddress
