@@ -12,7 +12,7 @@ import Starscream
     public let app: String
     public let ipAddress: String
     public let websocketFactory: SRWebSocketFactoryProtocol
-    private let decoder = JSONDecoder()
+    private let parser = SRResponseParser()
 
     public init(
         app: String,
@@ -29,10 +29,7 @@ import Starscream
         let websocket = websocketFactory.websocket(from: request)
         guard let data = try await websocket.connectUntilBody()
         else { return nil }
-        let response = try decoder.decode(SRAuthResponse.self, from: data)
-        guard let data = response.data else {
-            throw SRError.channelEvent(response.event)
-        }
-        return data.token
+        let body: SRAuthResponseBody = try parser.responseBody(from: data)
+        return body.token
     }
 }
