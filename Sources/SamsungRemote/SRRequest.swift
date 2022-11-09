@@ -10,7 +10,7 @@ import Foundation
 // MARK: - SRRequest
 
 public protocol SRRequest {
-    var url: URL { get }
+    var config: SRConfig { get }
     var body: String? { get }
 }
 
@@ -20,6 +20,6 @@ extension SRRequest {
     }
 
     public var urlRequest: URLRequest {
-        .init(url: url)
+        .init(url: config.url)
     }
 }
