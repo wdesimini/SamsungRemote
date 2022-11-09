@@ -1,0 +1,18 @@
+{
+    "data": {
+        "clients": [
+            {
+                "attributes": {
+                    "name": "V2lsbHlSZW1vdGU="
+                },
+                "connectTime": 1665862873434,
+                "deviceName": "V2lsbHlSZW1vdGU=",
+                "id": "f72a6481-1a30-448a-871a-36cfab32e2dc",
+                "isHost": false
+            }
+        ],
+        "id": "f72a6481-1a30-448a-871a-36cfab32e2dc",
+        "token": "11111111"
+    },
+    "event": "ms.channel.connect"
+}

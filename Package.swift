@@ -32,7 +32,8 @@ let package = Package(
         ),
         .testTarget(
             name: "SamsungRemoteTests",
-            dependencies: ["SamsungRemote"]
+            dependencies: ["SamsungRemote"],
+            resources: [.process("Resources")]
         ),
     ]
 )
