@@ -14,7 +14,7 @@ import Starscream
 struct SRWebSocketMockFactory: SRWebSocketFactoryProtocol {
     let events: [WebSocketEvent]
 
-    func websocket(from _: SRRequest) -> WebSocket {
+    func websocket(from _: any SRRequest) -> WebSocket {
         SRWebSocketMock(events: events)
     }
 }

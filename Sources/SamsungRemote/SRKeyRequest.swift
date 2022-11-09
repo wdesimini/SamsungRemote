@@ -8,6 +8,11 @@
 import Foundation
 
 public struct SRKeyRequest: SRRequest {
+    public struct ResponseBody: Codable {
+        public let clients: [SRDevice]
+        public let id: String
+    }
+
     public let command: SRCommand
     public let config: SRConfig
 

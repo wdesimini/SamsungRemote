@@ -10,16 +10,14 @@ import Foundation
 public struct SRResponseParser {
     private let decoder = JSONDecoder()
 
-    public func responseBody<T>(
+    public func response<Body: Decodable>(
         from data: Data
-    ) throws -> T where T: Codable {
-        let response = try decoder.decode(
-            SRResponse<T>.self,
-            from: data
-        )
-        guard let body = response.data else {
+    ) throws -> SRResponse<Body> {
+        let response: SRResponse<Body> = try decoder
+            .decode(SRResponse<Body>.self, from: data)
+        guard response.data != nil else {
             throw SRError.channelEvent(response.event)
         }
-        return body
+        return response
     }
 }

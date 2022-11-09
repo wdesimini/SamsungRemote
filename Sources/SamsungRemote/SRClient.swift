@@ -27,19 +27,23 @@ import Starscream
         self.websocketFactory = websocketFactory
     }
 
-    private func execute(_ request: SRRequest) async throws -> Data? {
+    private func execute<Request: SRRequest>(
+        _ request: Request
+    ) async throws -> Request.Response? {
         let websocket = websocketFactory.websocket(from: request)
-        return try await websocket.connectUntilBody(write: request.body)
+        guard let data = try await websocket
+            .connectUntilBody(write: request.body) else { return nil }
+        return try parser.response(from: data)
     }
 
     public func auth() async throws -> SRToken? {
         let request = SRAuthRequest(app: app, ipAddress: ipAddress)
-        guard let data = try await execute(request) else { return nil }
-        let body: SRAuthResponseBody = try parser.responseBody(from: data)
-        return body.token
+        let response = try await execute(request)
+        return response?.data?.token
     }
 
-    public func key(_ key: SRRemoteKey) async throws -> SRKeyResponseBody? {
+    public func key(_ key: SRRemoteKey) async throws -> SRKeyRequest
+        .ResponseBody? {
         guard let token = token else { throw SRError.missingToken }
         let params = SRCommand.Params(
             cmd: "Click",
@@ -54,7 +58,7 @@ import Starscream
             ipAddress: ipAddress,
             token: token
         )
-        guard let data = try await execute(request) else { return nil }
-        return try parser.responseBody(from: data)
+        let response = try await execute(request)
+        return response?.data
     }
 }

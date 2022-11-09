@@ -10,6 +10,8 @@ import Foundation
 // MARK: - SRRequest
 
 public protocol SRRequest {
+    associatedtype ResponseBody: Codable
+    typealias Response = SRResponse<ResponseBody>
     var config: SRConfig { get }
     var body: String? { get }
 }

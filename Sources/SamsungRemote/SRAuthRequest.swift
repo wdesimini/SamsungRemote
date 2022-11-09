@@ -8,6 +8,12 @@
 import Foundation
 
 public struct SRAuthRequest: SRRequest {
+    public struct ResponseBody: Codable {
+        public let clients: [SRDevice]
+        public let id: String
+        public let token: SRToken
+    }
+
     public let config: SRConfig
 
     init(app: String, ipAddress: String) {

@@ -10,7 +10,7 @@ import Starscream
 // MARK: - SRWebSocketFactoryProtocol
 
 public protocol SRWebSocketFactoryProtocol {
-    func websocket(from request: SRRequest) -> WebSocket
+    func websocket(from request: any SRRequest) -> WebSocket
 }
 
 // MARK: - SRWebSocketFactory
@@ -22,7 +22,7 @@ public struct SRWebSocketFactory: SRWebSocketFactoryProtocol {
         self.pinner = pinner ?? SRWebSocketCertPinner()
     }
 
-    public func websocket(from request: SRRequest) -> WebSocket {
+    public func websocket(from request: any SRRequest) -> WebSocket {
         WebSocket(
             request: request.urlRequest,
             certPinner: pinner
