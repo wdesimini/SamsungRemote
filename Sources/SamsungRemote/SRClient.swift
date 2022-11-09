@@ -30,6 +30,9 @@ import Starscream
         guard let data = try await websocket.connectUntilBody()
         else { return nil }
         let response = try decoder.decode(SRAuthResponse.self, from: data)
-        return response.data?.token
+        guard let data = response.data else {
+            throw SRError.channelEvent(response.event)
+        }
+        return data.token
     }
 }
