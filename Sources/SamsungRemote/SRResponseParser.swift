@@ -16,7 +16,7 @@ public struct SRResponseParser {
         if let authResponse: SRAuthRequest.Response = try? decoder
             .decode(SRAuthRequest.Response.self, from: data),
             let token = authResponse.data?.token,
-           SRResponse<Body>.self != SRAuthRequest.Response.self {
+            SRResponse<Body>.self != SRAuthRequest.Response.self {
             throw SRError.unexpectedAuthorization(token: token)
         } else if let response: SRResponse<Body> = try? decoder
             .decode(SRResponse<Body>.self, from: data) {

@@ -38,7 +38,7 @@ public struct SRRemoteControlCommand: Codable {
     public let params: Params
 
     public init(params: Params) {
-        self.method = "ms.remote.control"
+        method = "ms.remote.control"
         self.params = params
     }
 }

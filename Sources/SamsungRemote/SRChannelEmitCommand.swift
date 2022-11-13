@@ -16,8 +16,24 @@ public struct SRChannelEmitCommand: Codable {
 
         public struct AppData: Codable {
             public let actionType: AppActionType
-            public let appId: String
+            public let appID: String
             public let metaTag: String?
+
+            public enum CodingKeys: String, CodingKey {
+                case actionType = "action_type"
+                case appID = "appId"
+                case metaTag = "metaTag"
+            }
+
+            public init(
+                actionType: AppActionType,
+                appID: String,
+                metaTag: String?
+            ) {
+                self.actionType = actionType
+                self.appID = appID
+                self.metaTag = metaTag
+            }
         }
 
         public enum Event: String, Codable {
@@ -26,7 +42,7 @@ public struct SRChannelEmitCommand: Codable {
         }
 
         public let data: AppData?
-        public let event: String
+        public let event: Event
         public let to: String
     }
 
@@ -34,7 +50,7 @@ public struct SRChannelEmitCommand: Codable {
     public let params: Params
 
     public init(params: Params) {
-        self.method = "ms.channel.emit"
+        method = "ms.channel.emit"
         self.params = params
     }
 }
