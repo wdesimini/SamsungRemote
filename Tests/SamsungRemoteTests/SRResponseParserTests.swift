@@ -11,6 +11,14 @@ import XCTest
 final class SRResponseParserTests: XCTestCase {
     private let parser = SRResponseParser()
 
+    func testAppsResponseBody() throws {
+        let data = try Bundle.module.data("apps")
+        let response: SRAppRequest.Response = try parser.response(from: data)
+        XCTAssertNotNil(response.data?.data)
+        XCTAssertFalse(response.data!.data.isEmpty)
+        XCTAssertEqual(response.data!.data[0].name, "YouTube")
+    }
+
     func testAuthResponseBody() throws {
         let data = try Bundle.module.data("auth_approved")
         let response: SRAuthRequest.Response = try parser.response(from: data)

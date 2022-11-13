@@ -1,0 +1,99 @@
+{
+    "data": {
+        "data": [
+            {
+                "appId": "111299001912",
+                "app_type": 2,
+                "icon": "/opt/share/webappservice/apps_icon/FirstScreen/111299001912/250x250.png",
+                "is_lock": 0,
+                "name": "YouTube"
+            },
+            {
+                "appId": "org.tizen.browser",
+                "app_type": 4,
+                "icon": "/opt/share/webappservice/apps_icon/FirstScreen/webbrowser/250x250.png",
+                "is_lock": 0,
+                "name": "Internet"
+            },
+            {
+                "appId": "11101200001",
+                "app_type": 2,
+                "icon": "/opt/share/webappservice/apps_icon/FirstScreen/11101200001/250x250.png",
+                "is_lock": 0,
+                "name": "Netflix"
+            },
+            {
+                "appId": "3201710015016",
+                "app_type": 1,
+                "icon": "/opt/share/webappservice/apps_icon/FirstScreen/3201710015016/250x250.png",
+                "is_lock": 0,
+                "name": "SmartThings"
+            },
+            {
+                "appId": "3201511006428",
+                "app_type": 2,
+                "icon": "/opt/share/webappservice/apps_icon/FirstScreen/3201511006428/250x250.png",
+                "is_lock": 0,
+                "name": "Rakuten TV"
+            },
+            {
+                "appId": "3201512006785",
+                "app_type": 2,
+                "icon": "/opt/share/webappservice/apps_icon/FirstScreen/3201512006785/250x250.png",
+                "is_lock": 0,
+                "name": "Prime Video"
+            },
+            {
+                "appId": "121299000101",
+                "app_type": 2,
+                "icon": "/opt/share/webappservice/apps_icon/FirstScreen/121299000101/250x250.png",
+                "is_lock": 0,
+                "name": "TuneIn"
+            },
+            {
+                "appId": "3201803015852",
+                "app_type": 2,
+                "icon": "/opt/share/webappservice/apps_icon/FirstScreen/3201803015852/250x250.png",
+                "is_lock": 0,
+                "name": "Flying Fish 2"
+            },
+            {
+                "appId": "org.tizen.example.STVOpenTKApp1",
+                "app_type": 2,
+                "icon": "/opt/share/webappservice/apps_icon/FirstScreen/org.tizen.example.STVOpenTKApp1/250x250.png",
+                "is_lock": 0,
+                "name": "STVOpenTKApp1"
+            },
+            {
+                "appId": "3201710015037",
+                "app_type": 1,
+                "icon": "/opt/share/webappservice/apps_icon/FirstScreen/3201710015037/250x250.png",
+                "is_lock": 0,
+                "name": "Gallery"
+            },
+            {
+                "appId": "20192100002",
+                "app_type": 2,
+                "icon": "/opt/share/webappservice/apps_icon/FirstScreen/20192100002/250x250.png",
+                "is_lock": 0,
+                "name": "e-Manual"
+            },
+            {
+                "appId": "3201601007250",
+                "app_type": 2,
+                "icon": "/opt/share/webappservice/apps_icon/FirstScreen/3201601007250/250x250.png",
+                "is_lock": 0,
+                "name": "Google Play Movies"
+            },
+            {
+                "appId": "3201909019271",
+                "app_type": 2,
+                "icon": "/opt/share/webappservice/apps_icon/FirstScreen/3201909019271/250x250.png",
+                "is_lock": 0,
+                "name": "PrivacyChoices"
+            }
+        ]
+    },
+    "event": "ed.installedApp.get",
+    "from": "host"
+}
