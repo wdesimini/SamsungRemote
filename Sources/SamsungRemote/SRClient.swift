@@ -43,7 +43,7 @@ import Starscream
         let command = SRChannelEmitCommand(
             params: .init(
                 data: nil,
-                event: .apps,
+                event: .appsRequest,
                 to: "host"
             )
         )

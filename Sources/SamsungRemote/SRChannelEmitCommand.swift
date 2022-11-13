@@ -36,13 +36,8 @@ public struct SRChannelEmitCommand: Codable {
             }
         }
 
-        public enum Event: String, Codable {
-            case apps = "ed.installedApp.get"
-            case launchApp = "ed.apps.launch"
-        }
-
         public let data: AppData?
-        public let event: Event
+        public let event: SRChannelEvent
         public let to: String
     }
 
