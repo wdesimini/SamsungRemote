@@ -9,6 +9,7 @@ import Foundation
 
 public struct SRAppRequest: SRRequest {
     public struct ResponseBody: Codable {
+        public let data: [SRAppDetail]
     }
 
     public let command: SRChannelEmitCommand

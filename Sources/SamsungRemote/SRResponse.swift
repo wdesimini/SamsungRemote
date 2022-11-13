@@ -10,4 +10,5 @@ import Foundation
 public struct SRResponse<Body: Codable>: Codable {
     public let data: Body?
     public let event: SRChannelEvent
+    public let from: String?
 }
