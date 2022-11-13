@@ -9,6 +9,7 @@ import XCTest
 import Starscream
 @testable import SamsungRemote
 
+@available(iOS 13.0, macOS 10.15, *)
 final class SRClientTests: XCTestCase {
     private let app = "SamsungRemoteApp"
     private let ipAddress = "192.168.0.21"
