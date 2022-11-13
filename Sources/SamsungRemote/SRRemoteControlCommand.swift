@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct SRCommand: Codable {
+public struct SRRemoteControlCommand: Codable {
     public struct Params: Codable {
         public let cmd: String
         public let dataOfCmd: SRRemoteKey
@@ -37,8 +37,8 @@ public struct SRCommand: Codable {
     public let method: String
     public let params: Params
 
-    public init(method: String, params: Params) {
-        self.method = method
+    public init(params: Params) {
+        self.method = "ms.remote.control"
         self.params = params
     }
 }

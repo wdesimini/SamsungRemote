@@ -13,10 +13,15 @@ public struct SRKeyRequest: SRRequest {
         public let id: String
     }
 
-    public let command: SRCommand
+    public let command: SRRemoteControlCommand
     public let config: SRConfig
 
-    init(app: String, command: SRCommand, ipAddress: String, token: SRToken) {
+    init(
+        app: String,
+        command: SRRemoteControlCommand,
+        ipAddress: String,
+        token: SRToken
+    ) {
         self.command = command
         config = .secure(app: app, ipAddress: ipAddress, token: token)
     }

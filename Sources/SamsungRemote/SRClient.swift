@@ -45,13 +45,14 @@ import Starscream
     public func key(_ key: SRRemoteKey) async throws -> SRKeyRequest
         .ResponseBody? {
         guard let token = token else { throw SRError.missingToken }
-        let params = SRCommand.Params(
-            cmd: "Click",
-            dataOfCmd: key,
-            option: false,
-            typeOfRemote: .remoteKey
+        let command = SRRemoteControlCommand(
+            params: .init(
+                cmd: "Click",
+                dataOfCmd: key,
+                option: false,
+                typeOfRemote: .remoteKey
+            )
         )
-        let command = SRCommand(method: "ms.remote.control", params: params)
         let request = SRKeyRequest(
             app: app,
             command: command,
