@@ -8,7 +8,7 @@
 import Foundation
 import Starscream
 
-@available(macOS 10.15, *) public class SRClient {
+@available(iOS 13.0, macOS 10.15, *) public class SRClient {
     public let app: String
     public let ipAddress: String
     public let token: SRToken?

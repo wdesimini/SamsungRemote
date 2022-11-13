@@ -9,7 +9,7 @@ import Foundation
 import Starscream
 
 extension WebSocket {
-    @available(macOS 10.15, *) func connectUntilBody(
+    @available(iOS 13.0, macOS 10.15, *) func connectUntilBody(
         write: String? = nil
     ) async throws -> Data? {
         try await withCheckedThrowingContinuation { continuation in
