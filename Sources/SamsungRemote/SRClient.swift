@@ -36,6 +36,27 @@ import Starscream
         return try parser.response(from: data)
     }
 
+    public func apps() async throws -> [SRAppDetail]? {
+        guard let token = token else {
+            throw SRError.missingToken
+        }
+        let command = SRChannelEmitCommand(
+            params: .init(
+                data: nil,
+                event: .apps,
+                to: "host"
+            )
+        )
+        let request = SRAppRequest(
+            app: app,
+            command: command,
+            ipAddress: ipAddress,
+            token: token
+        )
+        let response = try await execute(request)
+        return response?.data?.data
+    }
+
     public func auth() async throws -> SRToken? {
         let request = SRAuthRequest(app: app, ipAddress: ipAddress)
         let response = try await execute(request)
