@@ -35,6 +35,21 @@ final class SRClientTests: XCTestCase {
         )
     }
 
+    func testApps() async throws {
+        // given
+        token = "11111111"
+        injectMockEvents([
+            .viabilityChanged(true),
+            .connectedMock,
+            try .textMock("apps"),
+            .cancelled
+        ])
+        // when
+        let apps = try await client.apps()
+        // then
+        XCTAssertNotNil(apps)
+    }
+
     func testAuthAllowed() async throws {
         // given
         injectMockEvents([
